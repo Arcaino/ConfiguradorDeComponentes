@@ -1,0 +1,54 @@
+@model IEnumerable<ConfiguradorDeComponents.Models.Equipamentos>
+
+<p>
+    <a asp-action="AdicionarEquipamento">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Identificador
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Tipo do equipameto
+            </th>
+            <th>
+                Numero de série
+            </th>
+            <th>
+                Data de cadastro
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeDoTipoDeEquipamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroDeSerie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataCadastro)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "EditarEquipamento", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeletarEquipamento", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
