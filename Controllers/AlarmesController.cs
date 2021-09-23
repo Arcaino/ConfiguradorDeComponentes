@@ -20,6 +20,10 @@ namespace ConfiguradorDeComponents.Controllers
 
         public IActionResult AdicionarAlarmes()
         {
+            _alarmesDAL = new AlarmesDAL();
+            
+            ViewBag.listaEquipamentosRelacionados = _alarmesDAL.ObterEquipamentosRelacionados();
+
             return View();
         }
 
@@ -34,32 +38,35 @@ namespace ConfiguradorDeComponents.Controllers
                         ViewBag.Mensagem = "Alarme cadastrado!";
                     }
                 }
-                return View();
+                return View("ObterAlarmes", _alarmesDAL.ObterAlarmes());
             }
-            catch (Exception){
-                return View("ObterAlarmes");
+            catch (Exception e){
+                return View("ObterAlarmes", _alarmesDAL.ObterAlarmes());
             }
         }
 
         public IActionResult EditarAlarme(int id)
         {
             _alarmesDAL = new AlarmesDAL();
+
+            ViewBag.listaEquipamentosRelacionados = _alarmesDAL.ObterEquipamentosRelacionados();
+
             return View(_alarmesDAL.ObterAlarmes().Find(a => a.IdAlarme == id));
         }
 
         [HttpPost]
-        public IActionResult EditarAlarme(int id, Alarmes alarmeObj)
+        public IActionResult EditarAlarme(Alarmes alarmeObj)
         {
             try
             {
                 _alarmesDAL = new AlarmesDAL();
                 _alarmesDAL.EditarAlarme(alarmeObj);
-                return RedirectToAction("ObterAlarmes");
+                return RedirectToAction("ObterAlarmes", _alarmesDAL.ObterAlarmes());
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 ViewBag.Mensagem = "Falha ao editar!";
-                return View("ObterAlarmes");
+                return View("ObterAlarmes", _alarmesDAL.ObterAlarmes());
             }
         }
 

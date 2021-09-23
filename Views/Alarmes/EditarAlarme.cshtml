@@ -1,4 +1,4 @@
-﻿@model ConfiguradorDeComponents.Models.Alarmes;
+@model ConfiguradorDeComponents.Models.Alarmes;
 @{
     var listaEquipamentosRelacionados = ViewBag.listaEquipamentosRelacionados as List<EquipamentosRelacionados>;
 }
@@ -7,7 +7,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AdicionarAlarmes">
+        <form asp-action="EditarAlarme">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <select asp-for="IdDoEquipamentoRelacionado">
@@ -32,7 +32,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

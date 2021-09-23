@@ -15,6 +15,29 @@ namespace ConfiguradorDeComponents.DAL
             _con = new NpgsqlConnection(constr);
         }
 
+        public List<EquipamentosRelacionados> ObterEquipamentosRelacionados(){
+            Connection();
+            List<EquipamentosRelacionados> equipamentosRelacionadosLista = new List<EquipamentosRelacionados>();
+
+            using(NpgsqlCommand command = new NpgsqlCommand("select id, nome from equipamentos", _con)){
+                _con.Open();
+                NpgsqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read()){
+                    EquipamentosRelacionados equipamentoRelacionado = new EquipamentosRelacionados()
+                    {
+                        IdDoEquipamentoRelacionado = Convert.ToInt32(reader["id"]),
+                        NomeDoEquipamentoRelacionado = Convert.ToString(reader["nome"]),
+                    };
+
+                    equipamentosRelacionadosLista.Add(equipamentoRelacionado);
+                }
+                _con.Close();
+
+                return equipamentosRelacionadosLista;
+            }
+        }
+
         public List<Alarmes> ObterAlarmes(){
             Connection();
             List<Alarmes> alarmesLista = new List<Alarmes>();
@@ -50,7 +73,7 @@ namespace ConfiguradorDeComponents.DAL
                                                              +"(@Descricao, @ClassificacaoId, @EquipamentoRelacionadoId, current_timestamp)", _con)){
                 command.Parameters.AddWithValue("@Descricao", alarmeObj.DescricaoAlarme);
                 command.Parameters.AddWithValue("@ClassificacaoId", alarmeObj.IdClassificacaoDoAlarme);
-                command.Parameters.AddWithValue("@EquipamentoRelacionadoId", alarmeObj.Id);
+                command.Parameters.AddWithValue("@EquipamentoRelacionadoId", alarmeObj.IdDoEquipamentoRelacionado);
 
                 _con.Open();
 
@@ -69,10 +92,10 @@ namespace ConfiguradorDeComponents.DAL
 
             using(NpgsqlCommand command = new NpgsqlCommand("UPDATE alarmes SET (descricao, classificacaoId, equipamentoRelacionadoId) = "
                                                              +   "(@Descricao, @ClassificacaoId, @EquipamentoRelacionadoId) WHERE id = @Id;", _con)){
-                command.Parameters.AddWithValue("@Id", alarmeObj.IdAlarme);
+                command.Parameters.AddWithValue("@Id", alarmeObj.Id);
                 command.Parameters.AddWithValue("@Descricao", alarmeObj.DescricaoAlarme);
                 command.Parameters.AddWithValue("@ClassificacaoId", alarmeObj.IdClassificacaoDoAlarme);
-                command.Parameters.AddWithValue("@EquipamentoRelacionadoId", alarmeObj.Id);
+                command.Parameters.AddWithValue("@EquipamentoRelacionadoId", alarmeObj.IdDoEquipamentoRelacionado);
 
                 _con.Open();
 

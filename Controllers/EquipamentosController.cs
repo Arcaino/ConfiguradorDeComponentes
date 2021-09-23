@@ -33,10 +33,10 @@ namespace ConfiguradorDeComponents.Controllers
                         ViewBag.Mensagem = "Equipamento cadastrado!";
                     }
                 }
-                return View();
+                return View("ObterEquipamentos", _equipamentosDAL.ObterEquipamentos());
             }
             catch (Exception){
-                return View("ObterEquipamentos");
+                return View("ObterEquipamentos", _equipamentosDAL.ObterEquipamentos());
             }
         }
 
@@ -47,7 +47,7 @@ namespace ConfiguradorDeComponents.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditarEquipamento(int id, Equipamentos equipamentoObj)
+        public IActionResult EditarEquipamento(Equipamentos equipamentoObj)
         {
             try
             {

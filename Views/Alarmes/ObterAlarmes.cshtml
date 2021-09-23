@@ -44,8 +44,8 @@
                     @Html.DisplayFor(modelItem => item.DataDeCadastroAlarme)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Edit", "EditarAlarme", new { id = item.IdAlarme }) |
+                    @Html.ActionLink("Delete", "DeletarAlarme", new { id = item.IdAlarme })
                 </td>
             </tr>
         }

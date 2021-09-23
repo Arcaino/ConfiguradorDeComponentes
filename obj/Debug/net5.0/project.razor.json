@@ -15659,6 +15659,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Alarmes\\EditarAlarme.cshtml",
+      "TargetPath": "Views\\Alarmes\\EditarAlarme.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
