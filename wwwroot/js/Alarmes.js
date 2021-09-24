@@ -3,20 +3,23 @@ $(document).ready(function() {
 });
 
 $('.switch').change(function(){
-    var id = $('.switch').attr('id');
-    if ($('.check-box').is(':checked')) {
+
+    var id = $(this).attr('id');
+
+    if ($(this).children('.check-box').is(':checked')) {
         statusDoAlarme = true;
     }
     else{
         statusDoAlarme = false;
     }
+
+    console.log(id);
+    
     ativarAlarme(id, statusDoAlarme);
+
 });
 
-
 ativarAlarme = function (id, statusDoAlarme) {
-
-    console.log(statusDoAlarme);
 
     $.ajax({
         type: 'POST',
@@ -28,4 +31,5 @@ ativarAlarme = function (id, statusDoAlarme) {
         error: (a) => {
         }
     });
+
 }
