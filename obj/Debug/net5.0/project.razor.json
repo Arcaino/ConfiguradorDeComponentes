@@ -15649,6 +15649,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Alarmes\\ObterAlarmesParaAtuar.cshtml",
+      "TargetPath": "Views\\Alarmes\\ObterAlarmesParaAtuar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"

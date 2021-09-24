@@ -121,3 +121,4 @@ C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\ConfiguradorDeComponents.pdb
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\ConfiguradorDeComponents.genruntimeconfig.cache
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Alarmes\EditarAlarme.cshtml.g.cs
+C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Alarmes\ObterAlarmesParaAtuar.cshtml.g.cs

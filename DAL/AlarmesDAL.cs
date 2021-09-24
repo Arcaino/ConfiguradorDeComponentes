@@ -69,8 +69,9 @@ namespace ConfiguradorDeComponents.DAL
 
             int retornoCasoSucesso;
 
-            using(NpgsqlCommand command = new NpgsqlCommand("INSERT INTO alarmes (descricao, classificacaoId, equipamentoRelacionadoId, dataDeCadastro) VALUES" 
-                                                             +"(@Descricao, @ClassificacaoId, @EquipamentoRelacionadoId, current_timestamp)", _con)){
+            using(NpgsqlCommand command = new NpgsqlCommand("INSERT INTO alarmes (descricao, classificacaoId, equipamentoRelacionadoId, dataDeCadastro, status, dataEntrada, dataSaida) VALUES" 
+                                                             +"(@Descricao, @ClassificacaoId, @EquipamentoRelacionadoId, current_timestamp, false, '', '')", _con)){
+
                 command.Parameters.AddWithValue("@Descricao", alarmeObj.DescricaoAlarme);
                 command.Parameters.AddWithValue("@ClassificacaoId", alarmeObj.IdClassificacaoDoAlarme);
                 command.Parameters.AddWithValue("@EquipamentoRelacionadoId", alarmeObj.IdDoEquipamentoRelacionado);
@@ -114,6 +115,56 @@ namespace ConfiguradorDeComponents.DAL
 
             using(NpgsqlCommand command = new NpgsqlCommand("DELETE FROM alarmes WHERE id = @id;", _con)){
                 command.Parameters.AddWithValue("@id", id);
+
+                _con.Open();
+
+                retornoCasoSucesso = Convert.ToInt32(command.ExecuteScalar());
+            }
+
+            _con.Close();
+
+            return retornoCasoSucesso >= 1;
+        }
+
+        public List<Alarmes> ObterAlarmesParaAtuar(){
+            Connection();
+            List<Alarmes> alarmesLista = new List<Alarmes>();            
+
+            using(NpgsqlCommand command = new NpgsqlCommand("select * from alarmesAtuadosView", _con)){
+                _con.Open();
+                NpgsqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read()){
+                    Alarmes alarme = new Alarmes()
+                    {
+                        IdAlarme = Convert.ToInt32(reader["id"]),
+                        DescricaoAlarme = Convert.ToString(reader["descricao"]),
+                        NomeDoEquipamentoRelacionado = Convert.ToString(reader["nome_equipamento_relacionado"]),
+                        Descricao = Convert.ToString(reader["descricao_equipamento_relacionado"]),
+                        Status = Convert.ToBoolean(reader["status"]),
+                        DataEntrada = Convert.ToString(reader["dataEntrada"]),
+                        DataSaida = Convert.ToString(reader["dataSaida"])
+                    };
+
+                    alarmesLista.Add(alarme);
+                }
+                _con.Close();
+
+                return alarmesLista;
+            }   
+        }
+
+        public bool AtuarAlarme(Alarmes alarmeObj, int id){
+            Connection();
+
+            int retornoCasoSucesso;
+
+            using(NpgsqlCommand command = new NpgsqlCommand("UPDATE alarmes SET (status, dataentrada, datasaida) = "
+                                                             +   "(@Status, @DataEntrada, @DataSaida) WHERE id = @Id;", _con)){
+                command.Parameters.AddWithValue("@Id", id);
+                command.Parameters.AddWithValue("@Status", alarmeObj.Status);
+                command.Parameters.AddWithValue("@DataEntrada", alarmeObj.DataEntrada);
+                command.Parameters.AddWithValue("@DataSaida", alarmeObj.DataSaida);
 
                 _con.Open();
 

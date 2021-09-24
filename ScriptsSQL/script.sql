@@ -13,7 +13,7 @@ CREATE TABLE equipamentos(
 	numeroDeSerie			int,
 	tipoDoEquipamentoId		int,
 	descricao				varchar(200),
-	dataDeCadastro			timestamp,
+	dataDeCadastro			text,
 	FOREIGN KEY (tipoDoEquipamentoId) REFERENCES tipoEquipamento (id)
 );
 
@@ -21,6 +21,7 @@ CREATE VIEW equipamentosView AS
 SELECT
 	e.id,
 	e.nome,
+	e.descricao,
 	te.nome as "tipo_do_equipamento",
 	e.numeroDeSerie as "numero_de_serie",
 	e.dataDeCadastro as "data_de_cadastro"
@@ -44,8 +45,10 @@ CREATE TABLE alarmes(
 	descricao					varchar(100),
 	classificacaoId				int,
 	equipamentoRelacionadoId	int,
-	dataDeCadastro				timestamp,
+	dataDeCadastro				text,
 	status						bool,
+	dataEntrada					text,
+	dataSaida					text,
 	FOREIGN KEY (classificacaoId) 			REFERENCES classificacaoAlarme (id),
 	FOREIGN KEY (equipamentoRelacionadoId) 	REFERENCES equipamentos (id)
 );
@@ -57,6 +60,23 @@ SELECT
 	a.descricao,
 	ca.nome as "nome_classificacao_alarme",
 	a.dataDeCadastro as "data_de_cadastro"
+FROM
+	alarmes a
+INNER JOIN classificacaoAlarme ca
+    ON a.classificacaoId = ca.id
+INNER JOIN equipamentos e
+    ON a.equipamentoRelacionadoId = e.id
+ORDER BY a.id;
+
+CREATE VIEW alarmesAtuadosView AS
+SELECT
+	a.id,
+	a.descricao,
+	e.nome as "nome_equipamento_relacionado",
+	e.descricao as "descricao_equipamento_relacionado",
+	a.status,
+	a.dataEntrada,
+	a.dataSaida
 FROM
 	alarmes a
 INNER JOIN classificacaoAlarme ca

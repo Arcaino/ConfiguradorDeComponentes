@@ -87,5 +87,12 @@ namespace ConfiguradorDeComponents.Controllers
                 return View("ObterAlarmes");
             }
         }
+
+        public IActionResult ObterAlarmesParaAtuar()
+        {
+            _alarmesDAL = new AlarmesDAL();
+
+            return View(_alarmesDAL.ObterAlarmesParaAtuar());
+        }
     }
 }

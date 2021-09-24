@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ConfiguradorDeComponents.Models.Alarmes>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id do alarme
+            </th>
+            <th>
+                Descrição do alarme
+            </th>
+            <th>
+                Nome do equipamento relacionado
+            </th>
+            <th>
+                Descrição do equipamento relacionado
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Data de saida
+            </th>
+            <th>
+                Data de entrada
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAlarme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoAlarme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDoEquipamentoRelacionado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataEntrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataSaida)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
