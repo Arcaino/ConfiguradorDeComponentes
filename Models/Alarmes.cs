@@ -5,6 +5,9 @@ namespace ConfiguradorDeComponents.Models
         public int IdAlarme { get; set; }
         public string DescricaoAlarme { get; set; }
         public string DataDeCadastroAlarme { get; set; }
+        public bool Status { get; set; }
+        public string DataEntrada { get; set; }
+        public string DataSaida { get; set; }
     }
     public class ClassificacaoAlarmes : EquipamentosRelacionados
     {

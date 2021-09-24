@@ -28,6 +28,7 @@ namespace ConfiguradorDeComponents.DAL
                     {
                         Id = Convert.ToInt32(reader["id"]),
                         Nome = Convert.ToString(reader["nome"]),
+                        Descricao = Convert.ToString(reader["descricao"]),
                         NomeDoTipoDeEquipamento = Convert.ToString(reader["tipo_do_equipamento"]),
                         NumeroDeSerie = Convert.ToInt32(reader["numero_de_serie"]),
                         DataCadastro = Convert.ToString(reader["data_de_cadastro"]),
@@ -46,9 +47,10 @@ namespace ConfiguradorDeComponents.DAL
 
             int retornoCasoSucesso;
 
-            using(NpgsqlCommand command = new NpgsqlCommand("INSERT INTO equipamentos (nome, numeroDeSerie, tipoDoEquipamentoId, dataDeCadastro) VALUES" 
-                                                             +"(@Nome, @NumeroDeSerie, @TipoDoEquipamentoId, current_timestamp)", _con)){
+            using(NpgsqlCommand command = new NpgsqlCommand("INSERT INTO equipamentos (nome, descricao, numeroDeSerie, tipoDoEquipamentoId, dataDeCadastro) VALUES" 
+                                                             +"(@Nome, @Descricao, @NumeroDeSerie, @TipoDoEquipamentoId, current_timestamp)", _con)){
                 command.Parameters.AddWithValue("@Nome", equipamentosObj.Nome);
+                command.Parameters.AddWithValue("@Descricao", equipamentosObj.Descricao);
                 command.Parameters.AddWithValue("@NumeroDeSerie", equipamentosObj.NumeroDeSerie);
                 command.Parameters.AddWithValue("@tipoDoEquipamentoId", equipamentosObj.IdDoTipoDeEquipamento);
 
@@ -67,10 +69,11 @@ namespace ConfiguradorDeComponents.DAL
 
             int retornoCasoSucesso;
 
-            using(NpgsqlCommand command = new NpgsqlCommand("UPDATE equipamentos SET (nome, numeroDeSerie, tipoDoEquipamentoId) = "
-                                                             +   "(@Nome, @NumeroDeSerie, @TipoDoEquipamentoId) WHERE id = @Id;", _con)){
+            using(NpgsqlCommand command = new NpgsqlCommand("UPDATE equipamentos SET (nome, descricao, numeroDeSerie, tipoDoEquipamentoId) = "
+                                                             +   "(@Nome, @Descricao, @NumeroDeSerie, @TipoDoEquipamentoId) WHERE id = @Id;", _con)){
                 command.Parameters.AddWithValue("@Id", equipamentosObj.Id);
                 command.Parameters.AddWithValue("@Nome", equipamentosObj.Nome);
+                command.Parameters.AddWithValue("@Descricao", equipamentosObj.Descricao);
                 command.Parameters.AddWithValue("@NumeroDeSerie", equipamentosObj.NumeroDeSerie);
                 command.Parameters.AddWithValue("@tipoDoEquipamentoId", equipamentosObj.IdDoTipoDeEquipamento);
 

@@ -12,6 +12,7 @@ CREATE TABLE equipamentos(
 	nome					varchar(50),
 	numeroDeSerie			int,
 	tipoDoEquipamentoId		int,
+	descricao				varchar(200),
 	dataDeCadastro			timestamp,
 	FOREIGN KEY (tipoDoEquipamentoId) REFERENCES tipoEquipamento (id)
 );
@@ -44,6 +45,7 @@ CREATE TABLE alarmes(
 	classificacaoId				int,
 	equipamentoRelacionadoId	int,
 	dataDeCadastro				timestamp,
+	status						bool,
 	FOREIGN KEY (classificacaoId) 			REFERENCES classificacaoAlarme (id),
 	FOREIGN KEY (equipamentoRelacionadoId) 	REFERENCES equipamentos (id)
 );

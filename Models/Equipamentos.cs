@@ -6,6 +6,7 @@ namespace ConfiguradorDeComponents.Models
         public string Nome { get; set; }
         public int NumeroDeSerie { get; set; }
         public string DataCadastro { get; set; }
+        public string Descricao { get; set; }
     }
 
     public class TipoEquipamento
