@@ -154,17 +154,16 @@ namespace ConfiguradorDeComponents.DAL
             }   
         }
 
-        public bool AtuarAlarme(Alarmes alarmeObj, int id){
+        public bool AtuarAlarme(int id, bool statusDoAlarme){
             Connection();
 
             int retornoCasoSucesso;
 
             using(NpgsqlCommand command = new NpgsqlCommand("UPDATE alarmes SET (status, dataentrada, datasaida) = "
-                                                             +   "(@Status, @DataEntrada, @DataSaida) WHERE id = @Id;", _con)){
+                                                             +   "(@Status, current_timestamp, '') WHERE id = @Id;", _con)){
+                                                                 
                 command.Parameters.AddWithValue("@Id", id);
-                command.Parameters.AddWithValue("@Status", alarmeObj.Status);
-                command.Parameters.AddWithValue("@DataEntrada", alarmeObj.DataEntrada);
-                command.Parameters.AddWithValue("@DataSaida", alarmeObj.DataSaida);
+                command.Parameters.AddWithValue("@Status", statusDoAlarme);
 
                 _con.Open();
 

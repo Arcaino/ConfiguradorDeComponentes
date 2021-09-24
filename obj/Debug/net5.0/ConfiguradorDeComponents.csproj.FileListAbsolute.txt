@@ -101,7 +101,9 @@ C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\ConfiguradorDeComponents.TagHelpers.output.cache
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\ConfiguradorDeComponents.RazorCoreGenerate.cache
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Alarmes\AdicionarAlarmes.cshtml.g.cs
+C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Alarmes\EditarAlarme.cshtml.g.cs
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Alarmes\ObterAlarmes.cshtml.g.cs
+C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Alarmes\ObterAlarmesParaAtuar.cshtml.g.cs
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Equipamentos\AdicionarEquipamento.cshtml.g.cs
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Equipamentos\EditarEquipamento.cshtml.g.cs
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Equipamentos\ObterEquipamentos.cshtml.g.cs
@@ -120,5 +122,3 @@ C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\ref\ConfiguradorDeComponents.dll
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\ConfiguradorDeComponents.pdb
 C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\ConfiguradorDeComponents.genruntimeconfig.cache
-C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Alarmes\EditarAlarme.cshtml.g.cs
-C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Alarmes\ObterAlarmesParaAtuar.cshtml.g.cs

@@ -94,5 +94,21 @@ namespace ConfiguradorDeComponents.Controllers
 
             return View(_alarmesDAL.ObterAlarmesParaAtuar());
         }
+
+        [HttpPost]
+        public IActionResult AtuarAlarme(int id, bool statusDoAlarme)
+        {
+            try
+            {
+                _alarmesDAL = new AlarmesDAL();
+                _alarmesDAL.AtuarAlarme(id, statusDoAlarme);
+                return RedirectToAction("ObterAlarmes", _alarmesDAL.ObterAlarmes());
+            }
+            catch (Exception e)
+            {
+                ViewBag.Mensagem = "Falha ao atuar alarme!";
+                return View("ObterAlarmes", _alarmesDAL.ObterAlarmes());
+            }
+        }
     }
 }

@@ -45,7 +45,10 @@
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                <label class="switch" id="@item.IdAlarme">
+                    @Html.DisplayFor(modelItem => item.Status)
+                    <span class="slider"></span>
+                </label><br><br>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DataEntrada)
