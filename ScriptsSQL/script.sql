@@ -84,3 +84,10 @@ INNER JOIN classificacaoAlarme ca
 INNER JOIN equipamentos e
     ON a.equipamentoRelacionadoId = e.id
 ORDER BY a.id;
+
+CREATE OR REPLACE FUNCTION atuarAlarme(statusAtual bool, idAlarme int) RETURNS void AS $$
+    BEGIN
+		UPDATE alarmes SET (datasaida) = (select dataEntrada from alarmes where id = idAlarme) WHERE id = idAlarme;
+		UPDATE alarmes SET (status, dataEntrada) = (statusAtual, (SELECT DATE_TRUNC('second', CURRENT_TIMESTAMP::timestamp))) WHERE id = idAlarme;
+    END;
+$$ LANGUAGE plpgsql;

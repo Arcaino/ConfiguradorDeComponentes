@@ -11,7 +11,7 @@ namespace ConfiguradorDeComponents.DAL
         private NpgsqlConnection _con;
 
         private void Connection(){
-            string constr = "Server=srv-testes;Port=5432;User Id=postgres;Password=geodados;Database=ConfigComponents";
+            string constr = "Server=localhost;Port=5432;User Id=postgres;Password=geodados;Database=ConfigComponents";
             _con = new NpgsqlConnection(constr);
         }
 
@@ -159,15 +159,14 @@ namespace ConfiguradorDeComponents.DAL
 
             int retornoCasoSucesso;
 
-            using(NpgsqlCommand command = new NpgsqlCommand("UPDATE alarmes SET (status, dataentrada, datasaida) = "
-                                                             +   "(@Status, current_timestamp, '') WHERE id = @Id;", _con)){
-                                                                 
+            using(NpgsqlCommand command = new NpgsqlCommand("SELECT atuarAlarme(@Status, @Id);", _con)){
+
+                command.Parameters.AddWithValue("@Status", statusDoAlarme);                                     
                 command.Parameters.AddWithValue("@Id", id);
-                command.Parameters.AddWithValue("@Status", statusDoAlarme);
 
                 _con.Open();
 
-                retornoCasoSucesso = Convert.ToInt32(command.ExecuteScalar());
+                retornoCasoSucesso = command.ExecuteNonQuery();
             }
 
             _con.Close();
