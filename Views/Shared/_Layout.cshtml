@@ -5,34 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ConfiguradorDeComponents</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/style.css"/>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ConfiguradorDeComponents</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Equipamentos" asp-action="ObterEquipamentos">Equipamentos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Alarmes" asp-action="ObterAlarmes">Alarmes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Alarmes" asp-action="ObterAlarmesParaAtuar">Gerenciar alarmes</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <nav class="menu">
+        <a class="menu__home" asp-area="" asp-controller="Home" asp-action="Index">
+            <img class="menu__home__logo" src="~/assets/COnfigurador.svg">
+        </a>
+        <div class="menu__nav">
+            <ul class="menu__nav__lista">
+                <a  asp-area="" asp-controller="Equipamentos" asp-action="ObterEquipamentos">
+                    <li class="menu__nav__lista__item">
+                        <i class="fas fa-satellite-dish"></i>
+                        <h3 class="menu__nav__lista__item__nome">Equipamentos</h3>
+                    </li>
+                </a>
+                <a asp-area="" asp-controller="Alarmes" asp-action="ObterAlarmes">
+                    <li class="menu__nav__lista__item">
+                        <i class="fas fa-bell"></i>
+                        <h3 class="menu__nav__lista__item__nome">Alarmes</h3>
+                    </li>
+                </a>
+                <a asp-area="" asp-controller="Alarmes" asp-action="ObterAlarmesParaAtuar">
+                    <li class="menu__nav__lista__item">
+                        <i class="fas fa-tasks"></i>
+                        <h3 class="menu__nav__lista__item__nome">Gerenciar alarmes</h3>
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -46,6 +50,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/fontawesome/js/all.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/Alarmes.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

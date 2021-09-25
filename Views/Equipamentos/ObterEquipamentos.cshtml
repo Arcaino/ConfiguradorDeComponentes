@@ -7,9 +7,6 @@
     <thead>
         <tr>
             <th>
-                Identificador
-            </th>
-            <th>
                 Nome
             </th>
             <th>
@@ -31,9 +28,6 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>

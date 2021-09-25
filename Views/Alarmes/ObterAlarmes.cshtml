@@ -7,9 +7,6 @@
     <thead>
         <tr>
             <th>
-                Identificador
-            </th>
-            <th>
                 Equipamento relacionado
             </th>
             <th>
@@ -28,9 +25,6 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdAlarme)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
