@@ -11,7 +11,7 @@ namespace ConfiguradorDeComponents.DAL
         private NpgsqlConnection _con;
 
         private void Connection(){
-            string constr = "Server=localhost;Port=5432;User Id=postgres;Password=geodados;Database=ConfigComponents";
+            string constr = "Server=srv-dev;Port=5432;User Id=postgres;Password=geodados;Database=claudio-teste";
             _con = new NpgsqlConnection(constr);
         }
 
@@ -130,7 +130,7 @@ namespace ConfiguradorDeComponents.DAL
             Connection();
             List<Alarmes> alarmesLista = new List<Alarmes>();            
 
-            using(NpgsqlCommand command = new NpgsqlCommand("select * from alarmesAtuadosView", _con)){
+            using(NpgsqlCommand command = new NpgsqlCommand("select * from alarmesParaAtuarView", _con)){
                 _con.Open();
                 NpgsqlDataReader reader = command.ExecuteReader();
 
@@ -172,6 +172,58 @@ namespace ConfiguradorDeComponents.DAL
             _con.Close();
 
             return retornoCasoSucesso >= 1;
+        }
+
+        public List<Alarmes> ObterAlarmesAtuados(){
+            Connection();
+            List<Alarmes> alarmesMaisAtuadosLista = new List<Alarmes>();
+
+            using(NpgsqlCommand command = new NpgsqlCommand("select * from alarmesAtuadosView;", _con)){
+                _con.Open();
+                NpgsqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read()){
+                    Alarmes alarmeMaisAtuado = new Alarmes()
+                    {
+                        IdAlarme = Convert.ToInt32(reader["id"]),
+                        DescricaoAlarme = Convert.ToString(reader["descricao"]),
+                        NomeClassificacaoAlarme = Convert.ToString(reader["nome_classificacao_alarme"]),
+                        Nome = Convert.ToString(reader["nome_equipamento_relacionado"]),
+                        DataDeCadastroAlarme = Convert.ToString(reader["data_de_cadastro"]),
+                    };
+
+                    alarmesMaisAtuadosLista.Add(alarmeMaisAtuado);
+                }
+                _con.Close();
+
+                return alarmesMaisAtuadosLista;
+            }
+        }
+
+        public List<Alarmes> ObterAlarmesMaisAtuados(){
+            Connection();
+            List<Alarmes> alarmesMaisAtuadosLista = new List<Alarmes>();
+
+            using(NpgsqlCommand command = new NpgsqlCommand("select * from alarmesMaisAtuadosView", _con)){
+                _con.Open();
+                NpgsqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read()){
+                    Alarmes alarmeMaisAtuado = new Alarmes()
+                    {
+                        IdAlarme = Convert.ToInt32(reader["id"]),
+                        DescricaoAlarme = Convert.ToString(reader["descricao"]),
+                        NomeClassificacaoAlarme = Convert.ToString(reader["nome_classificacao_alarme"]),
+                        Nome = Convert.ToString(reader["nome_equipamento_relacionado"]),
+                        VezesAtuadas = Convert.ToInt32(reader["vezesAtuadas"]),
+                    };
+
+                    alarmesMaisAtuadosLista.Add(alarmeMaisAtuado);
+                }
+                _con.Close();
+
+                return alarmesMaisAtuadosLista;
+            }
         }
     }
 }

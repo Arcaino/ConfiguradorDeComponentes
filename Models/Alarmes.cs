@@ -8,6 +8,7 @@ namespace ConfiguradorDeComponents.Models
         public bool Status { get; set; }
         public string DataEntrada { get; set; }
         public string DataSaida { get; set; }
+        public int VezesAtuadas { get; set; }
     }
     public class ClassificacaoAlarmes : EquipamentosRelacionados
     {

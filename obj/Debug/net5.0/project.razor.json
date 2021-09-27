@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\ConfiguradorDeComponents.csproj",
+  "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\ConfiguradorDeComponents.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,73 +15619,83 @@
   "RootNamespace": "ConfiguradorDeComponents",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Equipamentos\\AdicionarEquipamento.cshtml",
-      "TargetPath": "Views\\Equipamentos\\AdicionarEquipamento.cshtml",
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Alarmes\\_ObterAlarmesMaisAtuados.cshtml",
+      "TargetPath": "Views\\Alarmes\\_ObterAlarmesMaisAtuados.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Alarmes\\ObterAlarmesParaAtuar.cshtml",
-      "TargetPath": "Views\\Alarmes\\ObterAlarmesParaAtuar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Alarmes\\AdicionarAlarmes.cshtml",
-      "TargetPath": "Views\\Alarmes\\AdicionarAlarmes.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Alarmes\\ObterAlarmes.cshtml",
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Alarmes\\ObterAlarmes.cshtml",
       "TargetPath": "Views\\Alarmes\\ObterAlarmes.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Equipamentos\\EditarEquipamento.cshtml",
-      "TargetPath": "Views\\Equipamentos\\EditarEquipamento.cshtml",
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Alarmes\\AdicionarAlarmes.cshtml",
+      "TargetPath": "Views\\Alarmes\\AdicionarAlarmes.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Alarmes\\EditarAlarme.cshtml",
-      "TargetPath": "Views\\Alarmes\\EditarAlarme.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Home\\Privacy.cshtml",
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Alarmes\\ObterAlarmesParaAtuar.cshtml",
+      "TargetPath": "Views\\Alarmes\\ObterAlarmesParaAtuar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Equipamentos\\ObterEquipamentos.cshtml",
+      "TargetPath": "Views\\Equipamentos\\ObterEquipamentos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Alarmes\\EditarAlarme.cshtml",
+      "TargetPath": "Views\\Alarmes\\EditarAlarme.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\claud\\Documents\\GitHub\\ConfiguradorDeComponentes\\Views\\Equipamentos\\ObterEquipamentos.cshtml",
-      "TargetPath": "Views\\Equipamentos\\ObterEquipamentos.cshtml",
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Alarmes\\ObterAlarmesAtuados.cshtml",
+      "TargetPath": "Views\\Alarmes\\ObterAlarmesAtuados.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Equipamentos\\EditarEquipamento.cshtml",
+      "TargetPath": "Views\\Equipamentos\\EditarEquipamento.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Equipamentos\\AdicionarEquipamento.cshtml",
+      "TargetPath": "Views\\Equipamentos\\AdicionarEquipamento.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\claudio_natan\\Documents\\est\\TreeTech\\ConfiguradorDeComponents\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

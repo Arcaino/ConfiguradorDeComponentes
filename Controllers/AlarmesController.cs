@@ -110,5 +110,14 @@ namespace ConfiguradorDeComponents.Controllers
                 return View("ObterAlarmes", _alarmesDAL.ObterAlarmes());
             }
         }
+
+        public IActionResult ObterAlarmesAtuados()
+        {
+            _alarmesDAL = new AlarmesDAL();
+
+            ViewBag.listaAlarmesMaisAtuados = _alarmesDAL.ObterAlarmesMaisAtuados();
+
+            return View(_alarmesDAL.ObterAlarmesAtuados());
+        }
     }
 }

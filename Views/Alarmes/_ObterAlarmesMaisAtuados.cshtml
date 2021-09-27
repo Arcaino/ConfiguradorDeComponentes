@@ -1,0 +1,141 @@
+﻿@model IList<ConfiguradorDeComponents.Models.Alarmes>
+
+<style>
+    
+.tabelaMaisAtuados{
+    display: flex;
+}
+
+.tabelaMaisAtuados__cabecalho__items{
+    display: grid;
+}
+
+.tabelaMaisAtuados__corpo__items{
+    display: grid;
+}
+
+.bloco__tabelaMaisAtuados{
+    background-color: #FFF;
+    margin: 0 1rem;
+    border-radius: .5rem;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 13px;
+}
+
+.bloco__tabelaMaisAtuados__cabecalho{
+    color: #40916C;
+}
+
+</style>
+
+<div class="d-flex justify-content-center">
+    <div class="bloco__tabelaMaisAtuados">
+        <table class="bloco__tabelaMaisAtuados">
+            <thead class="bloco__tabelaMaisAtuados__cabecalho">
+                <tr class="bloco__tabelaMaisAtuados__cabecalho__items">
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Equipamento relacionado
+                    </th>
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Descrição do alarme
+                    </th>
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Classificação do alarme
+                    </th>
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Vezes atuadas
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bloco__tabelaMaisAtuados__corpo">
+                <tr class="bloco__tabelaMaisAtuados__corpo__items">
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[0].Nome)
+                    </td>
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[0].DescricaoAlarme)
+                    </td>
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[0].NomeClassificacaoAlarme)
+                    </td>
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[0].VezesAtuadas)
+                    </td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="bloco__tabelaMaisAtuados">
+        <table class="bloco__tabelaMaisAtuados">
+            <thead class="bloco__tabelaMaisAtuados__cabecalho">
+                <tr class="bloco__tabelaMaisAtuados__cabecalho__items">
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Equipamento relacionado
+                    </th>
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Descrição do alarme
+                    </th>
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Classificação do alarme
+                    </th>
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Vezes atuadas
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bloco__tabelaMaisAtuados__corpo">
+                <tr class="bloco__tabelaMaisAtuados__corpo__items">
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[1].Nome)
+                    </td>
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[1].DescricaoAlarme)
+                    </td>
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[1].NomeClassificacaoAlarme)
+                    </td>
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[1].VezesAtuadas)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="bloco__tabelaMaisAtuados">
+        <table class="bloco__tabelaMaisAtuados">
+            <thead class="bloco__tabelaMaisAtuados__cabecalho">
+                <tr class="bloco__tabelaMaisAtuados__cabecalho__items">
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Equipamento relacionado
+                    </th>
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Descrição do alarme
+                    </th>
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Classificação do alarme
+                    </th>
+                    <th class="bloco__tabelaMaisAtuados__cabecalho__items__item">
+                        Vezes atuadas
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bloco__tabelaMaisAtuados__corpo">
+                <tr class="bloco__tabelaMaisAtuados__corpo__items">
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[2].Nome)
+                    </td>
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[2].DescricaoAlarme)
+                    </td>
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[2].NomeClassificacaoAlarme)
+                    </td>
+                    <td class="bloco__tabelaMaisAtuados__corpo__items__item">
+                        @Html.DisplayFor(model => model[2].VezesAtuadas)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

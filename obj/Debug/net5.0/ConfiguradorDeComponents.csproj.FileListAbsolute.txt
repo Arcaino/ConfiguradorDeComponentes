@@ -247,3 +247,6 @@ C:\Users\claud\Documents\GitHub\ConfiguradorDeComponentes\obj\Debug\net5.0\Confi
 C:\Users\claud\Documents\GitHub\ConfiguradorDeComponentes\obj\Debug\net5.0\ref\ConfiguradorDeComponents.dll
 C:\Users\claud\Documents\GitHub\ConfiguradorDeComponentes\obj\Debug\net5.0\ConfiguradorDeComponents.pdb
 C:\Users\claud\Documents\GitHub\ConfiguradorDeComponentes\obj\Debug\net5.0\ConfiguradorDeComponents.genruntimeconfig.cache
+C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\bin\Debug\net5.0\package-lock.json
+C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Alarmes\ObterAlarmesAtuados.cshtml.g.cs
+C:\Users\claudio_natan\Documents\est\TreeTech\ConfiguradorDeComponents\obj\Debug\net5.0\Razor\Views\Alarmes\_ObterAlarmesMaisAtuados.cshtml.g.cs

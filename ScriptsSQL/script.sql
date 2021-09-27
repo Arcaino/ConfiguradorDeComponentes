@@ -17,6 +17,10 @@ CREATE TABLE equipamentos(
 	FOREIGN KEY (tipoDoEquipamentoId) REFERENCES tipoEquipamento (id)
 );
 
+INSERT INTO equipamentos (nome, numeroDeSerie, tipoDoEquipamentoId, descricao, dataDeCadastro) VALUES ('Pareador', 2, 2, 'Responsável por parear dois componentes', '2021-09-27 08:25');
+INSERT INTO equipamentos (nome, numeroDeSerie, tipoDoEquipamentoId, descricao, dataDeCadastro) VALUES ('Roteador', 11, 1, 'Compartilhamento de redes', '2021-09-27 11:59');
+INSERT INTO equipamentos (nome, numeroDeSerie, tipoDoEquipamentoId, descricao, dataDeCadastro) VALUES ('Regulador', 22, 3, 'Manipular nível dos componentes', '2021-09-27 12:22');
+
 CREATE VIEW equipamentosView AS
 SELECT
 	e.id,
@@ -49,9 +53,21 @@ CREATE TABLE alarmes(
 	status						bool,
 	dataEntrada					text,
 	dataSaida					text,
+	vezesAtuadas				int,
 	FOREIGN KEY (classificacaoId) 			REFERENCES classificacaoAlarme (id),
 	FOREIGN KEY (equipamentoRelacionadoId) 	REFERENCES equipamentos (id)
 );
+
+INSERT INTO alarmes(descricao, classificacaoId, equipamentoRelacionadoId, dataDeCadastro, status, dataEntrada, dataSaida, vezesAtuadas) 
+VALUES ('Verificar se o pareamento está ativo', 2, 1, '2021-10-09 09:20', false, '', '', 0);
+INSERT INTO alarmes(descricao, classificacaoId, equipamentoRelacionadoId, dataDeCadastro, status, dataEntrada, dataSaida, vezesAtuadas) 
+VALUES ('Informar se a rede desestabilizou', 1, 2, '2021-10-10 07:22', false, '', '', 0);
+INSERT INTO alarmes(descricao, classificacaoId, equipamentoRelacionadoId, dataDeCadastro, status, dataEntrada, dataSaida, vezesAtuadas) 
+VALUES ('Checar se os componentes estão nivelados', 3, 3, '2021-10-09 10:32', false, '', '', 0);
+INSERT INTO alarmes(descricao, classificacaoId, equipamentoRelacionadoId, dataDeCadastro, status, dataEntrada, dataSaida, vezesAtuadas) 
+VALUES ('Alertar o desligamento repentino', 1, 3, '2021-10-09 10:35', false, '', '', 0);
+INSERT INTO alarmes(descricao, classificacaoId, equipamentoRelacionadoId, dataDeCadastro, status, dataEntrada, dataSaida, vezesAtuadas) 
+VALUES ('Encaminhamento divergente de informações', 3, 2, '2021-10-12 09:44', false, '', '', 0);
 
 CREATE VIEW alarmesView AS
 SELECT
@@ -68,7 +84,7 @@ INNER JOIN equipamentos e
     ON a.equipamentoRelacionadoId = e.id
 ORDER BY a.id;
 
-CREATE VIEW alarmesAtuadosView AS
+CREATE VIEW alarmesParaAtuarView AS
 SELECT
 	a.id,
 	a.descricao,
@@ -87,7 +103,36 @@ ORDER BY a.id;
 
 CREATE OR REPLACE FUNCTION atuarAlarme(statusAtual bool, idAlarme int) RETURNS void AS $$
     BEGIN
-		UPDATE alarmes SET (datasaida) = (select dataEntrada from alarmes where id = idAlarme) WHERE id = idAlarme;
+		UPDATE alarmes SET (datasaida, vezesAtuadas) = ((select dataEntrada from alarmes where id = idAlarme), vezesAtuadas+1) WHERE id = idAlarme;
 		UPDATE alarmes SET (status, dataEntrada) = (statusAtual, (SELECT DATE_TRUNC('second', CURRENT_TIMESTAMP::timestamp))) WHERE id = idAlarme;
     END;
 $$ LANGUAGE plpgsql;
+
+CREATE VIEW alarmesAtuadosView AS
+SELECT
+	a.id,
+	e.nome as "nome_equipamento_relacionado",
+	a.descricao,
+	ca.nome as "nome_classificacao_alarme",
+	a.dataDeCadastro as "data_de_cadastro",
+	a.vezesAtuadas
+FROM
+	alarmes a
+INNER JOIN classificacaoAlarme ca
+    ON a.classificacaoId = ca.id
+INNER JOIN equipamentos e
+    ON a.equipamentoRelacionadoId = e.id
+WHERE a.status = true;
+
+
+/*
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
+select * from alarmesAtuadosView order by vezesatuadas DESC LIMIT 3
+
+select * from alarmesAtuadosView 
+
+select * from alarmesView
+
+*/

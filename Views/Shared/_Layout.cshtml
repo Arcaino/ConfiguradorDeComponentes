@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ConfiguradorDeComponents</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/datatables/datatables.css" />
     <link rel="stylesheet" href="~/lib/fontawesome/css/all.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/style.css"/>
@@ -43,6 +44,12 @@
                         <p class="menu__nav__lista__item__nome">Atuar alarmes</p>
                     </li>
                 </a>
+                <a asp-area="" asp-controller="Alarmes" asp-action="ObterAlarmesAtuados">
+                    <li class="menu__nav__lista__item">
+                        <i class="fas fa-toggle-on"></i>
+                        <p class="menu__nav__lista__item__nome">Alarmes atuados</p>
+                    </li>
+                </a>
             </ul>
         </div>
     </nav>
@@ -57,6 +64,7 @@
     <script src="~/lib/fontawesome/js/all.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/Alarmes.js" asp-append-version="true"></script>
+    <script type="text/javascript" charset="utf8" src="~/lib/datatables/datatables.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

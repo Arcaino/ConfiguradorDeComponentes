@@ -1,0 +1,56 @@
+@model IEnumerable<ConfiguradorDeComponents.Models.Alarmes>
+@{
+    var listaAlarmesMaisAtuados = ViewBag.listaAlarmesMaisAtuados as List<Alarmes>;
+}
+
+<div class="topo">
+    <h1 class="topo__aba">
+        Alarmes mais atuados
+    </h1>
+</div>
+
+@Html.Partial("_ObterAlarmesMaisAtuados", listaAlarmesMaisAtuados) 
+
+<div class="topo">
+    <h1 class="topo__aba">
+        Alarmes atuados
+    </h1>
+</div>
+
+<table class="tabela" id="tabela">
+    <thead class="tabela__cabecalho">
+        <tr class="tabela__cabecalho__items">
+            <th class="tabela__cabecalho__items__item">
+                Equipamento relacionado
+            </th>
+            <th class="tabela__cabecalho__items__item">
+                Descrição do alarme
+            </th>
+            <th class="tabela__cabecalho__items__item">
+                Classificação do alarme
+            </th>
+            <th class="tabela__cabecalho__items__item">
+                Data de cadastro
+            </th>
+        </tr>
+    </thead>
+    <tbody class="tabela__corpo">
+        @foreach (var item in Model)
+        {
+            <tr class="tabela__corpo__items">
+                <td class="tabela__corpo__items__item nome">
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td class="tabela__corpo__items__item">
+                    @Html.DisplayFor(modelItem => item.DescricaoAlarme)
+                </td>
+                <td class="tabela__corpo__items__item">
+                    @Html.DisplayFor(modelItem => item.NomeClassificacaoAlarme)
+                </td>
+                <td class="tabela__corpo__items__item">
+                    @Html.DisplayFor(modelItem => item.DataDeCadastroAlarme)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -26,9 +26,10 @@ capturarHorarioDaUltimaAtuacao = function (){
     var minutos = dataAtual.getMinutes();
     var segundos = dataAtual.getSeconds();
     var mesFormatadoComCasaDecimal = mes < 10 ? `0${mes}` : mes.toString();
+    var horasFormatadoComCasaDecimal = horas < 10 ? `0${horas}` : horas.toString();
     var minutosFormatadoComCasaDecimal = minutos < 10 ? `0${minutos}` : minutos.toString();
     var segundosFormatadoComCasaDecimal = segundos < 10 ? `0${segundos}` : segundos.toString();
-    return ano + "-" + mesFormatadoComCasaDecimal + "-" + dia + " " + horas + ":" + minutosFormatadoComCasaDecimal + ":" + segundosFormatadoComCasaDecimal;
+    return ano + "-" + mesFormatadoComCasaDecimal + "-" + dia + " " + horasFormatadoComCasaDecimal + ":" + minutosFormatadoComCasaDecimal + ":" + segundosFormatadoComCasaDecimal;
 }
 
 colocarCasaDecimal = function (minutos) {
