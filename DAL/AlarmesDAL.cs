@@ -70,7 +70,7 @@ namespace ConfiguradorDeComponents.DAL
             int retornoCasoSucesso;
 
             using(NpgsqlCommand command = new NpgsqlCommand("INSERT INTO alarmes (descricao, classificacaoId, equipamentoRelacionadoId, dataDeCadastro, status, dataEntrada, dataSaida) VALUES" 
-                                                             +"(@Descricao, @ClassificacaoId, @EquipamentoRelacionadoId, current_timestamp, false, '', '')", _con)){
+                                                             +"(@Descricao, @ClassificacaoId, @EquipamentoRelacionadoId, (SELECT DATE_TRUNC('second', CURRENT_TIMESTAMP::timestamp)), false, '', '')", _con)){
 
                 command.Parameters.AddWithValue("@Descricao", alarmeObj.DescricaoAlarme);
                 command.Parameters.AddWithValue("@ClassificacaoId", alarmeObj.IdClassificacaoDoAlarme);

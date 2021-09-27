@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('.check-box').prop("disabled", false);
 });
 
-$('.switch').change(function(){
+$('.tabela__corpo__items__item__switch').change(function(){
 
     var id = $(this).attr('id');
 

@@ -1,52 +1,72 @@
 @model IEnumerable<ConfiguradorDeComponents.Models.Equipamentos>
 
-<p>
-    <a asp-action="AdicionarEquipamento">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
+<div class="topo">
+    <div class="topo">
+        <h1 class="topo__aba">
+            Equipamentos
+        </h1>
+    </div>
+    <button class="topo__adicionar">
+        <a asp-action="AdicionarEquipamento">
+            <i class="fas fa-plus-circle"></i>
+            Adicionar Equipamento
+        </a>
+    </button>
+</div>
+
+<table class="tabela">
+    <thead class="tabela__cabecalho">
+        <tr class="tabela__cabecalho__items">
+            <th class="tabela__cabecalho__items__item">
                 Nome
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Descrição
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Tipo do equipameto
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Numero de série
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Data de cadastro
             </th>
-            <th></th>
+            <th class="tabela__cabecalho__items__item">
+                <i class="fas fa-ellipsis-h"></i>
+            </th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="tabela__corpo">
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
+            <tr class="tabela__corpo__items">
+                <td class="tabela__corpo__items__item nome">
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
-                <td>
+                <td class="tabela__corpo__items__item">
                     @Html.DisplayFor(modelItem => item.Descricao)
                 </td>
-                <td>
+                <td class="tabela__corpo__items__item">
                     @Html.DisplayFor(modelItem => item.NomeDoTipoDeEquipamento)
                 </td>
-                <td>
+                <td class="tabela__corpo__items__item">
                     @Html.DisplayFor(modelItem => item.NumeroDeSerie)
                 </td>
-                <td>
+                <td class="tabela__corpo__items__item">
                     @Html.DisplayFor(modelItem => item.DataCadastro)
                 </td>
 
-                <td>
-                    @Html.ActionLink("Edit", "EditarEquipamento", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "DeletarEquipamento", new { id = item.Id })
+                <td class="tabela__corpo__items__item">
+
+                    <a href="@Url.Action("EditarEquipamento", "Equipamentos", new { id = item.Id })">
+                        <i class="fas fa-pencil-alt"></i>           
+                    </a>
+
+                    <a href="@Url.Action("DeletarEquipamento", "Equipamentos", new { id = item.Id })">
+                        <i class="fas fa-trash-alt"></i>      
+                    </a>
+
                 </td>
             </tr>
         }

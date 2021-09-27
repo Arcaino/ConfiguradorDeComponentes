@@ -1,45 +1,61 @@
 ﻿@model IEnumerable<ConfiguradorDeComponents.Models.Alarmes>
 
-<p>
-    <a asp-action="AdicionarAlarmes">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
+<div class="topo">
+    <h1 class="topo__aba">
+        Alarmes
+    </h1>
+    <button class="topo__adicionar">
+        <a asp-action="AdicionarAlarmes">
+            <i class="fas fa-plus-circle"></i>
+            Adicionar Alarme
+        </a>
+    </button>
+</div>
+
+<table class="tabela">
+    <thead class="tabela__cabecalho">
+        <tr class="tabela__cabecalho__items">
+            <th class="tabela__cabecalho__items__item">
                 Equipamento relacionado
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Descrição do alarme
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Classificação do alarme
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Data de cadastro
             </th>
-            <th></th>
+            <th class="tabela__cabecalho__items__item">
+                <i class="fas fa-ellipsis-h"></i>
+            </th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="tabela__corpo">
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
+            <tr class="tabela__corpo__items">
+                <td class="tabela__corpo__items__item nome">
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
-                <td>
+                <td class="tabela__corpo__items__item">
                     @Html.DisplayFor(modelItem => item.DescricaoAlarme)
                 </td>
-                <td>
+                <td class="tabela__corpo__items__item">
                     @Html.DisplayFor(modelItem => item.NomeClassificacaoAlarme)
                 </td>
-                <td>
+                <td class="tabela__corpo__items__item">
                     @Html.DisplayFor(modelItem => item.DataDeCadastroAlarme)
                 </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditarAlarme", new { id = item.IdAlarme }) |
-                    @Html.ActionLink("Delete", "DeletarAlarme", new { id = item.IdAlarme })
+                <td class="tabela__corpo__items__item">
+                    <a href="@Url.Action("EditarAlarme", "Alarmes", new { id = item.IdAlarme })">
+                        <i class="fas fa-pencil-alt"></i>           
+                    </a>
+
+                    <a href="@Url.Action("DeletarAlarme", "Alarmes", new { id = item.IdAlarme })">
+                        <i class="fas fa-trash-alt"></i>      
+                    </a>
                 </td>
             </tr>
         }

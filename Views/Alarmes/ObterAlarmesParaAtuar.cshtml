@@ -1,59 +1,58 @@
 ﻿@model IEnumerable<ConfiguradorDeComponents.Models.Alarmes>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Id do alarme
-            </th>
-            <th>
+<div class="topo">
+    <h1 class="topo__aba">
+        Atuar alarmes
+    </h1>
+</div>
+
+<table class="tabela">
+    <thead class="tabela__cabecalho">
+        <tr class="tabela__cabecalho__items">
+            <th class="tabela__cabecalho__items__item">
                 Descrição do alarme
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Nome do equipamento relacionado
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Descrição do equipamento relacionado
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Status
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Data de saida
             </th>
-            <th>
+            <th class="tabela__cabecalho__items__item">
                 Data de entrada
             </th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="tabela__corpo">
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdAlarme)
-            </td>
-            <td>
+        <tr class="tabela__corpo__items">
+            <td class="tabela__corpo__items__item">
                 @Html.DisplayFor(modelItem => item.DescricaoAlarme)
             </td>
-            <td>
+            <td class="tabela__corpo__items__item">
                 @Html.DisplayFor(modelItem => item.NomeDoEquipamentoRelacionado)
             </td>
-            <td>
+            <td class="tabela__corpo__items__item">
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
-            <td>
-                <label class="switch" id="@item.IdAlarme">
-                    @Html.DisplayFor(modelItem => item.Status)
-                    <span class="slider"></span>
-                </label><br><br>
+            <td class="tabela__corpo__items__item">
+                <div class="h-100 d-flex align-items-center">
+                    <label class="tabela__corpo__items__item__switch" id="@item.IdAlarme">
+                        @Html.DisplayFor(modelItem => item.Status)
+                        <span class="tabela__corpo__items__item__switch__slider"></span>
+                    </label><br><br>
+                </div>
             </td>
-            <td id="dataSaida-@item.IdAlarme">
+            <td class="tabela__corpo__items__item" id="dataSaida-@item.IdAlarme">
                 @Html.DisplayFor(modelItem => item.DataSaida)
             </td>
-            <td id="dataEntrada-@item.IdAlarme">
+            <td class="tabela__corpo__items__item" id="dataEntrada-@item.IdAlarme">
                 @Html.DisplayFor(modelItem => item.DataEntrada)
             </td>
         </tr>

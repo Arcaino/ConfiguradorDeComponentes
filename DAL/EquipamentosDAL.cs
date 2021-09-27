@@ -48,7 +48,7 @@ namespace ConfiguradorDeComponents.DAL
             int retornoCasoSucesso;
 
             using(NpgsqlCommand command = new NpgsqlCommand("INSERT INTO equipamentos (nome, descricao, numeroDeSerie, tipoDoEquipamentoId, dataDeCadastro) VALUES" 
-                                                             +"(@Nome, @Descricao, @NumeroDeSerie, @TipoDoEquipamentoId, current_timestamp)", _con)){
+                                                             +"(@Nome, @Descricao, @NumeroDeSerie, @TipoDoEquipamentoId, (SELECT DATE_TRUNC('second', CURRENT_TIMESTAMP::timestamp)))", _con)){
                 command.Parameters.AddWithValue("@Nome", equipamentosObj.Nome);
                 command.Parameters.AddWithValue("@Descricao", equipamentosObj.Descricao);
                 command.Parameters.AddWithValue("@NumeroDeSerie", equipamentosObj.NumeroDeSerie);
@@ -92,12 +92,12 @@ namespace ConfiguradorDeComponents.DAL
 
             int retornoCasoSucesso;
 
-            using(NpgsqlCommand command = new NpgsqlCommand("DELETE FROM equipamentos WHERE id = @id;", _con)){
+            using(NpgsqlCommand command = new NpgsqlCommand("select deletarEquipamento(@id);", _con)){
                 command.Parameters.AddWithValue("@id", id);
 
                 _con.Open();
 
-                retornoCasoSucesso = Convert.ToInt32(command.ExecuteScalar());
+                retornoCasoSucesso = command.ExecuteNonQuery();
             }
 
             _con.Close();

@@ -50,7 +50,7 @@ namespace ConfiguradorDeComponents
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Equipamentos}/{action=ObterEquipamentos}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

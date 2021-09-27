@@ -8,46 +8,50 @@
     <link rel="stylesheet" href="~/lib/fontawesome/css/all.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="menu">
-        <a class="menu__home" asp-area="" asp-controller="Home" asp-action="Index">
+        <a class="menu__home">
             <img class="menu__home__logo" src="~/assets/COnfigurador.svg">
         </a>
         <div class="menu__nav">
             <ul class="menu__nav__lista">
+                <a  asp-area="" asp-controller="Home" asp-action="Index">
+                    <li class="menu__nav__lista__item">
+                        <i class="fas fa-home"></i>
+                        <p class="menu__nav__lista__item__nome">Ínicio</p>
+                    </li>
+                </a>
                 <a  asp-area="" asp-controller="Equipamentos" asp-action="ObterEquipamentos">
                     <li class="menu__nav__lista__item">
                         <i class="fas fa-satellite-dish"></i>
-                        <h3 class="menu__nav__lista__item__nome">Equipamentos</h3>
+                        <p class="menu__nav__lista__item__nome">Equipamentos</p>
                     </li>
                 </a>
                 <a asp-area="" asp-controller="Alarmes" asp-action="ObterAlarmes">
                     <li class="menu__nav__lista__item">
                         <i class="fas fa-bell"></i>
-                        <h3 class="menu__nav__lista__item__nome">Alarmes</h3>
+                        <p class="menu__nav__lista__item__nome">Alarmes</p>
                     </li>
                 </a>
                 <a asp-area="" asp-controller="Alarmes" asp-action="ObterAlarmesParaAtuar">
                     <li class="menu__nav__lista__item">
                         <i class="fas fa-tasks"></i>
-                        <h3 class="menu__nav__lista__item__nome">Gerenciar alarmes</h3>
+                        <p class="menu__nav__lista__item__nome">Atuar alarmes</p>
                     </li>
                 </a>
             </ul>
         </div>
     </nav>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - ConfiguradorDeComponents - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/fontawesome/js/all.js"></script>

@@ -53,12 +53,12 @@ namespace ConfiguradorDeComponents.Controllers
             {
                 _equipamentosDAL = new EquipamentosDAL();
                 _equipamentosDAL.EditarEquipamento(equipamentoObj);
-                return RedirectToAction("ObterEquipamentos");
+                return RedirectToAction("ObterEquipamentos", _equipamentosDAL.ObterEquipamentos());
             }
             catch (Exception)
             {
                 ViewBag.Mensagem = "Falha ao editar!";
-                return View("ObterEquipamentos");
+                return View("ObterEquipamentos", _equipamentosDAL.ObterEquipamentos());
             }
         }
 
@@ -72,11 +72,11 @@ namespace ConfiguradorDeComponents.Controllers
                     ViewBag.Mensagem = "Equipamento excluído!";
                 }
 
-                return RedirectToAction("ObterEquipamentos");
+                return RedirectToAction("ObterEquipamentos", _equipamentosDAL.ObterEquipamentos());
             }
-            catch
+            catch (Exception e)
             {
-                return View("ObterEquipamentos");
+                return View("ObterEquipamentos", _equipamentosDAL.ObterEquipamentos());
             }
         }
     }

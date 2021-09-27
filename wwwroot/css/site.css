@@ -1,49 +1,17 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+body {
+  font-family: "Inter";
 }
 
 .border-top {
   border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
 button.accept-policy {
@@ -51,21 +19,166 @@ button.accept-policy {
   line-height: inherit;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+.topo {
+  display: flex;
+  justify-content: space-between;
+}
+.topo__aba {
+  color: #40916C;
+  margin: 1rem;
+}
+.topo__adicionar {
+  background-color: #40916C;
+  border: 0;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 1rem;
+}
+.topo__adicionar a {
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 600;
+}
+.topo__adicionar a svg {
+  margin-right: 0.5rem;
+}
+
+.tabela {
+  width: 95%;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+.tabela__cabecalho {
+  height: 45px;
+}
+.tabela__cabecalho__items__item {
+  font-size: 12px;
+  text-align: center;
+  font-weight: normal;
+}
+.tabela__corpo {
+  background-color: #FFF;
+}
+.tabela__corpo__items__item {
+  text-align: center;
+  font-size: 14px;
+  height: 3.5rem;
+  font-weight: 500;
+}
+.tabela__corpo__items__item a {
+  color: #40916C;
+  font-size: 20px;
+  margin: 0 10px;
+}
+.tabela__corpo__items__item__switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin: 0;
+}
+.tabela__corpo__items__item__switch__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.tabela__corpo__items__item__switch__slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+.tabela__corpo__items__item__switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.tabela__corpo__items td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.tabela__corpo__items td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+input:checked + .tabela__corpo__items__item__switch__slider {
+  background-color: #40916C;
+}
+
+input:focus + .tabela__corpo__items__item__switch__slider {
+  box-shadow: 0 0 1px #40916C;
+}
+
+input:checked + .tabela__corpo__items__item__switch__slider:before {
+  transform: translateX(26px);
+}
+
+.nome {
+  font-weight: 600;
+  color: #40916C;
+}
+
+.cadastro__titulo {
+  text-align: center;
+  color: #40916C;
+  font-size: 1.8rem;
+}
+.cadastro__formulario {
+  width: 25rem;
+  border: 2px solid #40916C;
+  border-radius: 1rem;
+  padding: 2rem;
+  display: grid;
+  justify-content: center;
+  margin: 1rem 0;
+}
+.cadastro__formulario__requisito {
+  margin: 1rem 0;
+}
+.cadastro__formulario__requisito__titulo {
+  font-size: 1rem;
+  color: #40916C;
+}
+.cadastro__formulario__requisito__campo {
+  height: 2rem;
+  width: 15rem;
+  border-radius: 5px;
+  border: 1px solid #40916C;
+}
+.cadastro__formulario__requisito__descricao {
+  width: 15rem;
+  border-radius: 5px;
+  border: 1px solid #40916C;
+  height: 5rem;
+}
+.cadastro__botoes {
+  text-align: center;
+}
+
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  display: flex;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
+
+main {
+  position: relative;
   width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
+  background-color: #eee;
+}/*# sourceMappingURL=site.css.map */
