@@ -13,20 +13,20 @@
                 <div class="cadastro__formulario__requisito">
                     <h1 class="cadastro__formulario__requisito__titulo">Nome do equipamento</h1>
                     <input placeholder="Digite o nome do equipamento" class="cadastro__formulario__requisito__campo" asp-for="Nome" class="form-control" />
-                    <span asp-validation-for="Nome" class="text-danger"></span>
+                    <span asp-validation-for="Nome" class="cadastro__formulario__requisito__erro"></span>
                 </div>
 
                 <div class="cadastro__formulario__requisito">
                     <h1 class="cadastro__formulario__requisito__titulo">Descrição do equipamento</h1>
                     <textarea placeholder="Digite a descrição do equipamento" class="cadastro__formulario__requisito__descricao" asp-for="Descricao" class="form-control">
                     </textarea>
-                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                    <span asp-validation-for="Descricao" class="cadastro__formulario__requisito__erro"></span>
                 </div>
 
                 <div class="cadastro__formulario__requisito">
                     <h1 class="cadastro__formulario__requisito__titulo">Número de série</h1>
                     <input placeholder="Digite o número de série" class="cadastro__formulario__requisito__campo" asp-for="NumeroDeSerie" class="form-control" />
-                    <span asp-validation-for="NumeroDeSerie" class="text-danger"></span>
+                    <span asp-validation-for="NumeroDeSerie" class="cadastro__formulario__requisito__erro"></span>
                 </div>
 
                 <div class="cadastro__formulario__requisito">
@@ -37,6 +37,7 @@
                         <option value=2>Corrente</option>
                         <option value=3>Óleo</option>
                     </select>
+                    <span asp-validation-for="IdDoTipoDeEquipamento" class="cadastro__formulario__requisito__erro"></span>
                 </div>
             </div>
             <div class="cadastro__botoes">

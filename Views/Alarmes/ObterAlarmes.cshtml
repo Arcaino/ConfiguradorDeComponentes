@@ -52,12 +52,34 @@
                     <a href="@Url.Action("EditarAlarme", "Alarmes", new { id = item.IdAlarme })">
                         <i class="fas fa-pencil-alt"></i>           
                     </a>
-
-                    <a href="@Url.Action("DeletarAlarme", "Alarmes", new { id = item.IdAlarme })">
+                    <a data-toggle="modal" data-target="#modalDeletarAlarme">
                         <i class="fas fa-trash-alt"></i>      
                     </a>
                 </td>
             </tr>
+
+            <div class="modal fade" id="modalDeletarAlarme" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Deletar alarme</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Tem certeza que deseja excluir este alarme permanentemente?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                        <a href="@Url.Action("DeletarAlarme", "Alarmes", new { id = item.IdAlarme })">
+                            <button type="button" class="btn btn-success">Sim</button>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
         }
     </tbody>
 </table>

@@ -1,5 +1,5 @@
 body {
-  font-family: "Inter";
+  font-family: 'Inter';
 }
 
 .border-top {
@@ -11,7 +11,8 @@ body {
 }
 
 .box-shadow {
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
 button.accept-policy {
@@ -19,14 +20,36 @@ button.accept-policy {
   line-height: inherit;
 }
 
-.topo {
-  display: flex;
-  justify-content: space-between;
+.home__principal {
+  text-align: center;
 }
+
+.home__titulo {
+  color: #40916C;
+}
+
+.home__tecnologias {
+  margin: 0 1.5rem;
+}
+
+.home__instrucoes {
+  text-align: center;
+}
+
+.topo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .topo__aba {
   color: #40916C;
   margin: 1rem;
 }
+
 .topo__adicionar {
   background-color: #40916C;
   border: 0;
@@ -34,13 +57,15 @@ button.accept-policy {
   border-radius: 5px;
   margin: 1rem;
 }
+
 .topo__adicionar a {
   color: #FFF;
   font-size: 14px;
   font-weight: 600;
 }
+
 .topo__adicionar a svg {
-  margin-right: 0.5rem;
+  margin-right: .5rem;
 }
 
 .tabela {
@@ -49,28 +74,40 @@ button.accept-policy {
   border-collapse: separate;
   border-spacing: 0 5px;
 }
+
 .tabela__cabecalho {
   height: 45px;
 }
+
 .tabela__cabecalho__items__item {
   font-size: 12px;
   text-align: center;
   font-weight: normal;
 }
+
 .tabela__corpo {
   background-color: #FFF;
 }
+
 .tabela__corpo__items__item {
   text-align: center;
   font-size: 14px;
   height: 3.5rem;
   font-weight: 500;
+  max-width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  table-layout: fixed;
 }
+
 .tabela__corpo__items__item a {
-  color: #40916C;
+  color: #40916C !important;
+  cursor: pointer;
   font-size: 20px;
   margin: 0 10px;
 }
+
 .tabela__corpo__items__item__switch {
   position: relative;
   display: inline-block;
@@ -78,6 +115,7 @@ button.accept-policy {
   height: 34px;
   margin: 0;
 }
+
 .tabela__corpo__items__item__switch__slider {
   position: absolute;
   cursor: pointer;
@@ -86,9 +124,11 @@ button.accept-policy {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  transition: 0.4s;
+  -webkit-transition: .4s;
+  transition: .4s;
   border-radius: 34px;
 }
+
 .tabela__corpo__items__item__switch__slider::before {
   position: absolute;
   content: "";
@@ -97,18 +137,22 @@ button.accept-policy {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  transition: 0.4s;
+  -webkit-transition: .4s;
+  transition: .4s;
   border-radius: 50%;
 }
+
 .tabela__corpo__items__item__switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
+
 .tabela__corpo__items td:first-child {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
+
 .tabela__corpo__items td:last-child {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -119,10 +163,12 @@ input:checked + .tabela__corpo__items__item__switch__slider {
 }
 
 input:focus + .tabela__corpo__items__item__switch__slider {
-  box-shadow: 0 0 1px #40916C;
+  -webkit-box-shadow: 0 0 1px #40916C;
+          box-shadow: 0 0 1px #40916C;
 }
 
 input:checked + .tabela__corpo__items__item__switch__slider:before {
+  -webkit-transform: translateX(26px);
   transform: translateX(26px);
 }
 
@@ -136,34 +182,50 @@ input:checked + .tabela__corpo__items__item__switch__slider:before {
   color: #40916C;
   font-size: 1.8rem;
 }
+
 .cadastro__formulario {
   width: 25rem;
   border: 2px solid #40916C;
   border-radius: 1rem;
   padding: 2rem;
+  display: -ms-grid;
   display: grid;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 1rem 0;
 }
+
 .cadastro__formulario__requisito {
   margin: 1rem 0;
 }
+
 .cadastro__formulario__requisito__titulo {
   font-size: 1rem;
   color: #40916C;
 }
+
 .cadastro__formulario__requisito__campo {
   height: 2rem;
   width: 15rem;
   border-radius: 5px;
   border: 1px solid #40916C;
 }
+
 .cadastro__formulario__requisito__descricao {
   width: 15rem;
   border-radius: 5px;
   border: 1px solid #40916C;
   height: 5rem;
 }
+
+.cadastro__formulario__requisito__erro {
+  color: #dc3545;
+  text-align: center;
+  max-width: 15rem;
+  display: block;
+}
+
 .cadastro__botoes {
   text-align: center;
 }
@@ -174,6 +236,8 @@ html {
 }
 
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -181,4 +245,5 @@ main {
   position: relative;
   width: 100%;
   background-color: #eee;
-}/*# sourceMappingURL=site.css.map */
+}
+/*# sourceMappingURL=site.css.map */

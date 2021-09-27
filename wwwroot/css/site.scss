@@ -18,6 +18,21 @@ button.accept-policy {
   line-height: inherit;
 }
 
+.home{
+  &__principal{
+    text-align: center;
+  }
+  &__titulo{
+    color: #40916C;
+  }
+  &__tecnologias{
+    margin: 0 1.5rem;
+  }
+  &__instrucoes{
+    text-align: center;
+  }
+}
+
 .topo{
   display: flex;
   justify-content: space-between;
@@ -44,6 +59,10 @@ button.accept-policy {
 
 
 .tabela{
+  width: 95%;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0 5px;
   &__cabecalho{
     height: 45px;
     &__items{
@@ -62,8 +81,16 @@ button.accept-policy {
         font-size: 14px;
         height: 3.5rem;
         font-weight: 500;
+
+        max-width: 500px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        table-layout: fixed;
+
         a{
-          color: #40916C;
+          color: #40916C !important;
+          cursor: pointer;
           font-size: 20px;
           margin: 0 10px;
         }
@@ -166,6 +193,12 @@ input:checked + .tabela__corpo__items__item__switch__slider:before {
         border-radius: 5px;
         border: 1px solid #40916C;
         height: 5rem;
+      }
+      &__erro{
+        color: #dc3545;
+        text-align: center;
+        max-width: 15rem;
+        display: block;
       }
     }
   }

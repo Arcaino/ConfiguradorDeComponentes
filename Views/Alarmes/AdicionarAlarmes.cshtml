@@ -24,13 +24,14 @@
                             </text>
                         }
                     </select>
+                    <span asp-validation-for="IdDoEquipamentoRelacionado" class="cadastro__formulario__requisito__erro"></span>
                 </div>
 
                 <div class="cadastro__formulario__requisito">
                     <h1 class="cadastro__formulario__requisito__titulo">Descrição do alarme</h1>
                     <textarea placeholder="Digite a descrição do alarme" class="cadastro__formulario__requisito__descricao" asp-for="DescricaoAlarme">
                     </textarea>
-                    <span asp-validation-for="DescricaoAlarme"></span>
+                    <span asp-validation-for="DescricaoAlarme" class="cadastro__formulario__requisito__erro"></span>
                 </div>
 
                 <div class="cadastro__formulario__requisito">
@@ -41,6 +42,7 @@
                         <option value=2>Médio</option>
                         <option value=3>Baixo</option>
                     </select>
+                    <span asp-validation-for="IdClassificacaoDoAlarme" class="cadastro__formulario__requisito__erro"></span>
                 </div>
             </div>
             <div class="cadastro__botoes">

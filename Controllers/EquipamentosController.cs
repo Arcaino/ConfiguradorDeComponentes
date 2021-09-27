@@ -74,7 +74,7 @@ namespace ConfiguradorDeComponents.Controllers
 
                 return RedirectToAction("ObterEquipamentos", _equipamentosDAL.ObterEquipamentos());
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return View("ObterEquipamentos", _equipamentosDAL.ObterEquipamentos());
             }

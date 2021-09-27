@@ -21,6 +21,13 @@ INSERT INTO equipamentos (nome, numeroDeSerie, tipoDoEquipamentoId, descricao, d
 INSERT INTO equipamentos (nome, numeroDeSerie, tipoDoEquipamentoId, descricao, dataDeCadastro) VALUES ('Roteador', 11, 1, 'Compartilhamento de redes', '2021-09-27 11:59');
 INSERT INTO equipamentos (nome, numeroDeSerie, tipoDoEquipamentoId, descricao, dataDeCadastro) VALUES ('Regulador', 22, 3, 'Manipular nível dos componentes', '2021-09-27 12:22');
 
+CREATE OR REPLACE FUNCTION deletarEquipamento(idAlarme int) RETURNS void AS $$
+    BEGIN
+		DELETE FROM alarmes WHERE equipamentoRelacionadoId = idAlarme;
+		DELETE FROM equipamentos WHERE id = idAlarme;
+    END;
+$$ LANGUAGE plpgsql;
+
 CREATE VIEW equipamentosView AS
 SELECT
 	e.id,
@@ -46,7 +53,7 @@ INSERT INTO classificacaoAlarme (nome) VALUES ('Baixo');
 
 CREATE TABLE alarmes(
 	id							serial	PRIMARY KEY,
-	descricao					varchar(100),
+	descricao					varchar(200),
 	classificacaoId				int,
 	equipamentoRelacionadoId	int,
 	dataDeCadastro				text,
@@ -124,15 +131,17 @@ INNER JOIN equipamentos e
     ON a.equipamentoRelacionadoId = e.id
 WHERE a.status = true;
 
-
-/*
-DROP SCHEMA public CASCADE;
-CREATE SCHEMA public;
-
-select * from alarmesAtuadosView order by vezesatuadas DESC LIMIT 3
-
-select * from alarmesAtuadosView 
-
-select * from alarmesView
-
-*/
+CREATE VIEW alarmesMaisAtuadosView AS
+SELECT
+	a.id,
+	e.nome as "nome_equipamento_relacionado",
+	a.descricao,
+	ca.nome as "nome_classificacao_alarme",
+	a.vezesAtuadas
+FROM
+	alarmes a
+INNER JOIN classificacaoAlarme ca
+    ON a.classificacaoId = ca.id
+INNER JOIN equipamentos e
+    ON a.equipamentoRelacionadoId = e.id
+ORDER BY vezesatuadas DESC LIMIT 3;
