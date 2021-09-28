@@ -1,11 +1,9 @@
 @model IEnumerable<ConfiguradorDeComponents.Models.Equipamentos>
 
 <div class="topo">
-    <div class="topo">
-        <h1 class="topo__aba">
-            Equipamentos
-        </h1>
-    </div>
+    <h1 class="topo__aba">
+        Equipamentos
+    </h1>
     <button class="topo__adicionar">
         <a asp-action="AdicionarEquipamento">
             <i class="fas fa-plus-circle"></i>
@@ -63,34 +61,12 @@
                         <i class="fas fa-pencil-alt"></i>           
                     </a>
 
-                    <a data-toggle="modal" data-target="#modalDeletarEquipamento">
-                        <i class="fas fa-trash-alt"></i>      
+                    <a href="@Url.Action("DeletarEquipamento", "Equipamentos", new { id = item.Id })">
+                        <i class="fas fa-trash-alt"></i>
                     </a>
 
                 </td>
             </tr>
-
-            <div class="modal fade" id="modalDeletarEquipamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Deletar alarme</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Exluir um equipamento consequentemente ira apagar todos os alarmes relacionados ao mesmo. Deseja continuar? 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-                        <a href="@Url.Action("DeletarEquipamento", "Equipamentos", new { id = item.Id })">
-                            <button type="button" class="btn btn-success">Sim</button>
-                        </a>
-                    </div>
-                    </div>
-                </div>
-            </div>
         }
     </tbody>
 </table>

@@ -31,17 +31,16 @@ namespace ConfiguradorDeComponents.Controllers
         public IActionResult AdicionarAlarmes(Alarmes alarmeObj)
         {
             try{
-                if(ModelState.IsValid){
-                    _alarmesDAL = new AlarmesDAL();
+                _alarmesDAL = new AlarmesDAL();
 
-                    if (_alarmesDAL.AdicionarAlarme(alarmeObj)){
-                        ViewBag.Mensagem = "Alarme cadastrado!";
-                    }
+                if (_alarmesDAL.AdicionarAlarme(alarmeObj)){
+                    ViewBag.Mensagem = "Alarme cadastrado!";
                 }
-                return View("ObterAlarmes", _alarmesDAL.ObterAlarmes());
+
+                return RedirectToAction("ObterAlarmes", _alarmesDAL.ObterAlarmes());
             }
-            catch (Exception e){
-                return View("ObterAlarmes", _alarmesDAL.ObterAlarmes());
+            catch{
+                return RedirectToAction("ObterAlarmes", _alarmesDAL.ObterAlarmes());
             }
         }
 
@@ -63,10 +62,10 @@ namespace ConfiguradorDeComponents.Controllers
                 _alarmesDAL.EditarAlarme(alarmeObj);
                 return RedirectToAction("ObterAlarmes", _alarmesDAL.ObterAlarmes());
             }
-            catch (Exception e)
+            catch
             {
                 ViewBag.Mensagem = "Falha ao editar!";
-                return View("ObterAlarmes", _alarmesDAL.ObterAlarmes());
+                return RedirectToAction("ObterAlarmes", _alarmesDAL.ObterAlarmes());
             }
         }
 
@@ -104,10 +103,10 @@ namespace ConfiguradorDeComponents.Controllers
                 _alarmesDAL.AtuarAlarme(id, statusDoAlarme);
                 return RedirectToAction("ObterAlarmes", _alarmesDAL.ObterAlarmes());
             }
-            catch (Exception e)
+            catch
             {
                 ViewBag.Mensagem = "Falha ao atuar alarme!";
-                return View("ObterAlarmes", _alarmesDAL.ObterAlarmes());
+                return RedirectToAction("ObterAlarmes", _alarmesDAL.ObterAlarmes());
             }
         }
 

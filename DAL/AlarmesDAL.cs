@@ -11,7 +11,7 @@ namespace ConfiguradorDeComponents.DAL
         private NpgsqlConnection _con;
 
         private void Connection(){
-            string constr = "Server=srv-dev;Port=5432;User Id=postgres;Password=geodados;Database=claudio-teste";
+            string constr = "Server=localhost;Port=5432;User Id=postgres;Password=geodados;Database=ConfigComponents";
             _con = new NpgsqlConnection(constr);
         }
 
@@ -69,8 +69,8 @@ namespace ConfiguradorDeComponents.DAL
 
             int retornoCasoSucesso;
 
-            using(NpgsqlCommand command = new NpgsqlCommand("INSERT INTO alarmes (descricao, classificacaoId, equipamentoRelacionadoId, dataDeCadastro, status, dataEntrada, dataSaida) VALUES" 
-                                                             +"(@Descricao, @ClassificacaoId, @EquipamentoRelacionadoId, (SELECT DATE_TRUNC('second', CURRENT_TIMESTAMP::timestamp)), false, '', '')", _con)){
+            using(NpgsqlCommand command = new NpgsqlCommand("INSERT INTO alarmes (descricao, classificacaoId, equipamentoRelacionadoId, dataDeCadastro, status, dataEntrada, dataSaida, vezesAtuadas) VALUES" 
+                                                             +"(@Descricao, @ClassificacaoId, @EquipamentoRelacionadoId, (SELECT DATE_TRUNC('second', CURRENT_TIMESTAMP::timestamp)), false, '', '', 0)", _con)){
 
                 command.Parameters.AddWithValue("@Descricao", alarmeObj.DescricaoAlarme);
                 command.Parameters.AddWithValue("@ClassificacaoId", alarmeObj.IdClassificacaoDoAlarme);

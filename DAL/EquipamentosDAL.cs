@@ -11,7 +11,7 @@ namespace ConfiguradorDeComponents.DAL
         private NpgsqlConnection _con;
 
         private void Connection(){
-            string constr = "Server=srv-dev;Port=5432;User Id=postgres;Password=geodados;Database=claudio-teste";
+            string constr = "Server=localhost;Port=5432;User Id=postgres;Password=geodados;Database=ConfigComponents";
             _con = new NpgsqlConnection(constr);
         }
 
